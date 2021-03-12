@@ -62,7 +62,7 @@ client.on("message", (msg) => {
     });
   }
 
-  if (msg.content.startsWith("!Q").trim()) {
+  if (msg.content.startsWith("!Q")) {
     getQuote()
       .then((quote) => {
         msg.channel.send(quote);
@@ -105,7 +105,7 @@ client.on("message", (msg) => {
     return;
   }
 
-  if (msg.content.startsWith("!hitler").trim()) {
+  if (msg.content.startsWith("!hitler")) {
     const length = HQuotes.length;
 
     const random = HQuotes[Math.ceil(Math.random() * length - 1)];
@@ -115,7 +115,7 @@ client.on("message", (msg) => {
     return;
   }
 
-  if (msg.content.startsWith("!dark").trim()) {
+  if (msg.content.startsWith("!dark")) {
     const length = darkHumor.length;
 
     const random = darkHumor[Math.ceil(Math.random() * length)];
