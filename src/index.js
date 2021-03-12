@@ -114,4 +114,4 @@ client.on("message", (msg) => {
   }
 });
 
-client.login("ODE5NjA2ODY4NzQ0ODYzNzg2.YEpEYQ.QSBmkZu1PoZdJrCEeIDZN2YzExs");
+client.login(process.env.TOKEN);
