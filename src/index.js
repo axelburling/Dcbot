@@ -112,6 +112,10 @@ client.on("message", (msg) => {
   } else if (msg.content.startsWith("!random")) {
     const length = msg.content.split("!random ")[1];
 
+    if (length == undefined) {
+      msg.reply(Math.floor(Math.random() * 100));
+    }
+
     msg.reply(Math.floor(Math.random() * parseInt(length)));
   } else {
     return;
