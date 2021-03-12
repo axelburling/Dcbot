@@ -14,7 +14,7 @@ const getQuote = async () => {
 
 const stonks = async (symbol) => {
   const res = await fetch(
-    `https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol=${symbol}&apikey=${process.env.API_KEY}`
+    `https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol=${symbol}&apikey==YUSVXWALWOHX4663`
   );
   const data = await res.json();
   const key = Object.keys(data)[1];
@@ -113,8 +113,5 @@ client.on("message", (msg) => {
     msg.channel.send(random);
   }
 });
-if (process.env.NODE_ENV == "production") {
-  client.login(process.env.TOKEN);
-} else {
-  client.login(process.env.TOKEN_DEV);
-}
+
+client.login("ODE5NjA2ODY4NzQ0ODYzNzg2.YEpEYQ.pwP0n7_lDFYHbBvGghF4BQ6l0KI");
