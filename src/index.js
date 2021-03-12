@@ -40,7 +40,7 @@ client.on("message", (msg) => {
     msg.reply("pong");
   }
 
-  if (msg.content.contains("!help") || msg.content.contains("!commands")) {
+  if (msg.content.startsWith("!help") || msg.content.startsWith("!commands")) {
     msg.channel.send({
       embed: {
         color: Math.floor(Math.random() * 16777215),
