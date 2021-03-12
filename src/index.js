@@ -86,7 +86,7 @@ client.on("message", (msg) => {
         );
     } else if (symbol == "help") {
       msg.channel.send(
-        "Here is a list of stock symbols - https://eoddata.com/symbols.aspx"
+        "Here is a list of stock symbols - https://gretlcycu.files.wordpress.com/2013/08/quick-ticker-symbol-list.pdf"
       );
     } else {
       stonks(symbol.toString())
