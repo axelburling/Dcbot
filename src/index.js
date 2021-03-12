@@ -2,7 +2,6 @@ require("dotenv").config();
 const fetch = require("node-fetch");
 const Discord = require("discord.js");
 const { MessageAttachment } = require("discord.js");
-const discordTTS = require("discord-tts");
 const client = new Discord.Client();
 const { HQuotes, darkHumor } = require("./HQuotes");
 const app = require("express")();
