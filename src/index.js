@@ -115,7 +115,10 @@ client.on("message", (msg) => {
     const random = darkHumor[Math.ceil(Math.random() * length)];
 
     msg.channel.send(random);
+    
   }
+msg.reply("Not a valid command")
+  
 });
 
 client.login(process.env.TOKEN);
