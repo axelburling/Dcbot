@@ -39,9 +39,10 @@ client.on("ready", () => {
 client.on("message", (msg) => {
   if (msg.content === "ping") {
     msg.reply("pong");
-  }
-
-  if (msg.content.startsWith("!help") || msg.content.startsWith("!commands")) {
+  } else if (
+    msg.content.startsWith("!help") ||
+    msg.content.startsWith("!commands")
+  ) {
     msg.channel.send({
       embed: {
         color: Math.floor(Math.random() * 16777215),
@@ -61,9 +62,7 @@ client.on("message", (msg) => {
         ],
       },
     });
-  }
-
-  if (msg.content.startsWith("!Q")) {
+  } else if (msg.content.startsWith("!Q")) {
     getQuote()
       .then((quote) => {
         msg.channel.send(quote);
@@ -71,11 +70,7 @@ client.on("message", (msg) => {
       .catch((err) =>
         msg.reply("Server is not working at the moment, Please try in a minute")
       );
-  } else {
-    return;
-  }
-
-  if (msg.content.startsWith("!stonks")) {
+  } else if (msg.content.startsWith("!stonks")) {
     const symbol = msg.content.split("!stonks ")[1];
     if (symbol == undefined || symbol.length === 0) {
       stonks("AAPL")
@@ -102,21 +97,13 @@ client.on("message", (msg) => {
           )
         );
     }
-  } else {
-    return;
-  }
-
-  if (msg.content.startsWith("!hitler")) {
+  } else if (msg.content.startsWith("!hitler")) {
     const length = HQuotes.length;
 
     const random = HQuotes[Math.ceil(Math.random() * length - 1)];
 
     msg.channel.send(`${random} - Adolf Hitler`);
-  } else {
-    return;
-  }
-
-  if (msg.content.startsWith("!dark")) {
+  } else if (msg.content.startsWith("!dark")) {
     const length = darkHumor.length;
 
     const random = darkHumor[Math.ceil(Math.random() * length)];
