@@ -58,7 +58,7 @@ client.on("message", (msg) => {
           {
             name: "Command",
             value:
-              "!Q\n!stonks symbol\n!hitler\n!dark\n!random numbuer/coin\n!meme",
+              "!Q\n!stonks symbol\n!hitler\n!dark\n!random number/coin\n!meme",
             inline: true,
           },
           {
