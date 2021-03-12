@@ -21,6 +21,7 @@ const stonks = async (symbol) => {
     `https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol=${symbol}&apikey==YUSVXWALWOHX4663`
   );
   const data = await res.json();
+  console.log(data);
   const key = Object.keys(data)[1];
   const val = data[key];
 
