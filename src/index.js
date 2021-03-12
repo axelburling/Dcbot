@@ -70,6 +70,8 @@ client.on("message", (msg) => {
       .catch((err) =>
         msg.reply("Server is not working at the moment, Please try in a minute")
       );
+  } else {
+    return
   }
 
   if (msg.content.startsWith("!stonks")) {
@@ -99,6 +101,8 @@ client.on("message", (msg) => {
           )
         );
     }
+  } else {
+    return
   }
 
   if (msg.content.startsWith("!hitler")) {
@@ -107,6 +111,8 @@ client.on("message", (msg) => {
     const random = HQuotes[Math.ceil(Math.random() * length - 1)];
 
     msg.channel.send(`${random} - Adolf Hitler`);
+  } else {
+    return
   }
 
   if (msg.content.startsWith("!dark")) {
@@ -116,8 +122,10 @@ client.on("message", (msg) => {
 
     msg.channel.send(random);
     
+  } else {
+    return;
   }
-msg.reply("Not a valid command")
+  
   
 });
 
