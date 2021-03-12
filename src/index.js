@@ -40,7 +40,7 @@ client.on("message", (msg) => {
     msg.reply("pong");
   }
 
-  if (msg.content.startsWith("!help") || msg.content.startsWith("!commands")) {
+  if (msg.content.contains("!help") || msg.content.contains("!commands")) {
     msg.channel.send({
       embed: {
         color: Math.floor(Math.random() * 16777215),
@@ -62,7 +62,7 @@ client.on("message", (msg) => {
     });
   }
 
-  if (msg.content.startsWith("!Q")) {
+  if (msg.content.contains("!Q")) {
     getQuote()
       .then((quote) => {
         msg.channel.send(quote);
@@ -105,7 +105,7 @@ client.on("message", (msg) => {
     return
   }
 
-  if (msg.content.startsWith("!hitler")) {
+  if (msg.content.contains("!hitler")) {
     const length = HQuotes.length;
 
     const random = HQuotes[Math.ceil(Math.random() * length - 1)];
@@ -115,7 +115,7 @@ client.on("message", (msg) => {
     return
   }
 
-  if (msg.content.startsWith("!dark")) {
+  if (msg.content.contains("!dark")) {
     const length = darkHumor.length;
 
     const random = darkHumor[Math.ceil(Math.random() * length)];
