@@ -3,7 +3,11 @@ const fetch = require("node-fetch");
 const Discord = require("discord.js");
 const client = new Discord.Client();
 const { HQuotes, darkHumor } = require("./HQuotes");
+const app = require("express")();
 
+const port = process.env.PORT;
+
+app.listen(port);
 const getQuote = async () => {
   const res = await fetch("https://zenquotes.io/api/random");
   const data = await res.json();
