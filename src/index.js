@@ -1,6 +1,8 @@
 require("dotenv").config();
 const fetch = require("node-fetch");
 const Discord = require("discord.js");
+const { MessageAttachment } = require("discord.js");
+const discordTTS = require("discord-tts");
 const client = new Discord.Client();
 const { HQuotes, darkHumor } = require("./HQuotes");
 const app = require("express")();
@@ -32,6 +34,12 @@ const stonks = async (symbol) => {
   return `${symbol}, opened at: ${open} and closed at: ${close}`;
 };
 
+const memes = async () => {
+  const res = await fetch("https://meme-api.herokuapp.com/gimme/dankmemes/1");
+  const data = await res.json();
+  return data.memes[0].url;
+};
+
 client.on("ready", () => {
   console.log(`Logged in as ${client.user.tag}`);
 });
@@ -50,13 +58,14 @@ client.on("message", (msg) => {
         fields: [
           {
             name: "Command",
-            value: "!Q\n!stonks symbol\n!hitler\n!dark",
+            value:
+              "!Q\n!stonks symbol\n!hitler\n!dark\n!random numbuer/coin\n!meme",
             inline: true,
           },
           {
             name: "description",
             value:
-              "Get a random quote\nGet a stocks opening and closing value\nGet a random Hitler quote\nGet a random dark joke",
+              "Get a random quote\nGet a stocks opening and closing value\nGet a random Hitler quote\nGet a random dark joke\nGet a random number, coin is for coin toss\nRandom meme from r/dankmemes",
             inline: true,
           },
         ],
@@ -111,15 +120,30 @@ client.on("message", (msg) => {
     msg.channel.send(random);
   } else if (msg.content.startsWith("!random")) {
     const length = msg.content.split("!random ")[1];
-
     if (length == undefined) {
       msg.reply(Math.floor(Math.random() * 100));
+    } else if (length == "coin") {
+      const coin = Math.random() * 1;
+      if (coin > 0.5) {
+        msg.reply("Heads");
+      } else {
+        msg.reply("Tails");
+      }
+    } else {
+      msg.reply(Math.floor(Math.random() * parseInt(length)));
     }
-
-    msg.reply(Math.floor(Math.random() * parseInt(length)));
+  } else if (msg.content.startsWith("!meme")) {
+    memes().then((meme) => {
+      const img = new MessageAttachment(meme);
+      msg.reply("Random meme from reddit", img);
+    });
   } else {
     return;
   }
 });
 
-client.login(process.env.TOKEN);
+if (process.env.NODE_ENV == "production") {
+  client.login(process.env.TOKEN);
+} else {
+  client.login(process.env.TOKEN_DEV);
+}
