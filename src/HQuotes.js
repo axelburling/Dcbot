@@ -44,7 +44,7 @@ const darkHumor = [
     "doing a good job" +
     "if you do it at home you’re “destroying evidence”",
   "Two kids were beating up a kid in an ally, so I stepped into help. He didn’t stand a chance against the three of us.",
-  "My grandfather has the heart of a lion… And a lifetime ban from the zoo.",
+  "My grandfather has the heart of a lion… And a lifetime ban from the zoo.", "The Toaster; other wise known as, the ultimate bath bomb.", 
 ];
 
 module.exports = {

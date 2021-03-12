@@ -62,7 +62,7 @@ client.on("message", (msg) => {
     });
   }
 
-  if (msg.content.contains("!Q")) {
+  if (msg.content.startsWith("!Q").trim()) {
     getQuote()
       .then((quote) => {
         msg.channel.send(quote);
@@ -71,7 +71,7 @@ client.on("message", (msg) => {
         msg.reply("Server is not working at the moment, Please try in a minute")
       );
   } else {
-    return
+    return;
   }
 
   if (msg.content.startsWith("!stonks")) {
@@ -102,31 +102,28 @@ client.on("message", (msg) => {
         );
     }
   } else {
-    return
+    return;
   }
 
-  if (msg.content.contains("!hitler")) {
+  if (msg.content.startsWith("!hitler").trim()) {
     const length = HQuotes.length;
 
     const random = HQuotes[Math.ceil(Math.random() * length - 1)];
 
     msg.channel.send(`${random} - Adolf Hitler`);
   } else {
-    return
+    return;
   }
 
-  if (msg.content.contains("!dark")) {
+  if (msg.content.startsWith("!dark").trim()) {
     const length = darkHumor.length;
 
     const random = darkHumor[Math.ceil(Math.random() * length)];
 
     msg.channel.send(random);
-    
   } else {
     return;
   }
-  
-  
 });
 
 client.login(process.env.TOKEN);
