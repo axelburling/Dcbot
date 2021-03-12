@@ -113,5 +113,8 @@ client.on("message", (msg) => {
     msg.channel.send(random);
   }
 });
-
-client.login(process.env.TOKEN);
+if (process.env.NODE_ENV == "production") {
+  client.login(process.env.TOKEN);
+} else {
+  client.login(process.env.TOKEN_DEV);
+}
