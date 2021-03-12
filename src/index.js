@@ -109,6 +109,10 @@ client.on("message", (msg) => {
     const random = darkHumor[Math.ceil(Math.random() * length)];
 
     msg.channel.send(random);
+  } else if (msg.content.startsWith("!random")) {
+    const length = msg.content.split("!random ")[1];
+
+    msg.reply(Math.floor(Math.random() * parseInt(length)));
   } else {
     return;
   }
